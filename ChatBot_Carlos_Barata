@@ -34,6 +34,23 @@ def obter_resposta(texto: str) -> str:
                 return resposta
         elif chave in comando:
             return resposta
+        
+    if comando == 'python':
+        return 'Python é uma linguagem de programação versátil e muito usada.'
+    if 'o que é python' in comando:
+        return 'Python é uma linguagem de programação poderosa e fácil de aprender.'
+    if 'para que serve o python' in comando or 'serve o python' in comando:
+        return 'Python é usado em web, automação, IA, análise de dados, jogos e muito mais.'
+    if 'como criar uma variável' in comando:
+        return 'Basta usar o sinal =, por exemplo: idade = 25'
+    if 'como fazer um if' in comando:
+        return 'Exemplo: if idade > 18:\n    print("Maior de idade")'
+    if 'como fazer um loop' in comando or 'ciclo' in comando:
+        return 'Exemplo: for i in range(5):\n    print(i)'
+    if 'o que são listas' in comando:
+        return 'Listas guardam vários valores, ex: frutas = ["maçã", "banana", "laranja"]'
+    if 'como sair do loop' in comando:
+        return 'Usa-se break para sair de um loop antecipadamente.'
 
     return f'Desculpa, não entendi a questão! {texto}'
 
@@ -46,6 +63,9 @@ def chat() -> None:
 
     while True:
         user_input: str = input('Tu: ')
+        resposta: str = obter_resposta(user_input)
+        print(f'Bot: {resposta}') 
+
 
         if resposta == 'Gostei de falar contigo! Até breve...':
             break
